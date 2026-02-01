@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+  <!-- Button Container -->
+  <div class="relative w-40 h-40">
+
+    <!-- Circular Text -->
+    <svg viewBox="0 0 200 200" class="absolute inset-0">
+      <defs>
+        <path
+          id="circlePath"
+          d="M 100,100
+             m -80,0
+             a 80,80 0 1,1 160,0
+             a 80,80 0 1,1 -160,0"
+        />
+      </defs>
+
+      <text fill="white" font-size="12" font-weight="600" letter-spacing="3">
+        <textPath href="#circlePath" startOffset="0%">
+          SUCCESS BRAND WITH DEMO • SUCCESS BRAND WITH DEMO •
+        </textPath>
+      </text>
+    </svg>
+
+    <!-- Green Circle -->
+    <div class="w-40 h-40 rounded-full bg-green-600 flex items-center justify-center shadow-lg">
+
+      <!-- Center Arrow -->
+      <span class="text-white text-3xl font-bold">↗</span>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
