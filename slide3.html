@@ -1,123 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-    </style>
-    <link rel="stylesheet" href="./output.css">
-</head>
-<body class="bg-gray-100 p-10">
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-<div class="max-w-6xl mx-auto relative group">
-    <button onclick="moveSlider(-1)" class="absolute left-[-20px] top-1/2 -translate-y-1/2 z-10 bg-emerald-50 p-3 rounded-full shadow-md hover:bg-emerald-100 transition">
-        <svg class="w-5 h-5 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-    </button>
-
-    <button onclick="moveSlider(1)" class="absolute right-[-20px] top-1/2 -translate-y-1/2 z-10 bg-emerald-50 p-3 rounded-full shadow-md hover:bg-emerald-100 transition">
-        <svg class="w-5 h-5 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-    </button>
-
-    <div class="overflow-hidden rounded-lg">
-        <div id="slider" class="flex transition-transform duration-500 ease-out gap-4">
-            
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1590496793907-3997f99378a9?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Tree Removal">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Removal</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🌳</div>
-                </div>
-            </div>
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1590496793907-3997f99378a9?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Tree Removal">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Removal</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🌳</div>
-                </div>
-            </div>
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1590496793907-3997f99378a9?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Tree Removal">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Removal</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🌳</div>
-                </div>
-            </div>
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1590496793907-3997f99378a9?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Tree Removal">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Removal</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🌳</div>
-                </div>
-            </div>
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1590496793907-3997f99378a9?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Tree Removal">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Removal</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🌳</div>
-                </div>
-            </div>
-
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Stump Grinding">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Removal</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🪵</div>
-                </div>
-            </div>
-
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Tree Pruning">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Tree Pruning</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">🌿</div>
-                </div>
-            </div>
-
-            <div class="min-w-[calc(33.333%-11px)] bg-white rounded-xl overflow-hidden shadow-sm">
-                <div class="h-80 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-105 transition duration-500" alt="Hedge Trimming">
-                </div>
-                <div class="p-5 flex justify-between items-center bg-[#f0f4f3]">
-                    <span class="font-bold text-emerald-900 text-lg">Hedge Trimming</span>
-                    <div class="bg-white p-2 rounded-full shadow-sm text-2xl">✂️</div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<script>
-    let currentIdx = 0;
-    const slider = document.getElementById('slider');
-    const totalCards = slider.children.length;
-    const visibleCards = 3;
-
-    function moveSlider(direction) {
-        currentIdx += direction;
-        
-        // Loop constraints
-        if (currentIdx > totalCards - visibleCards) currentIdx = 0;
-        if (currentIdx < 0) currentIdx = totalCards - visibleCards;
-
-        const percentage = currentIdx * (100 / visibleCards);
-        slider.style.transform = `translateX(-${percentage}%)`;
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
     }
-</script>
 
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div dir="rtl" class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      slidesPerView:3,
+      spaceBetween:10,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
 </body>
+
 </html>
