@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar Toggle with Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for smooth transitions */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.active {
+            max-height: 600px; /* Increased for dropdown content */
+            opacity: 1;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo Section -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center py-4 px-2">
+                        <span class="font-bold text-gray-800 text-xl tracking-tight">BRAND<span class="text-blue-500">LOGO</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="nav-link py-4 px-2 text-gray-600 font-semibold hover:text-blue-500 transition duration-300">Home</a>
+                    
+                    <!-- Dropdown Group -->
+                    <div class="relative group">
+                        <button class="nav-link flex items-center py-4 px-2 text-gray-600 font-semibold hover:text-blue-500 transition duration-300">
+                            <span>Services</span>
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- Dropdown Content (Desktop) -->
+                        <div class="absolute left-0 w-48 mt-0 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-2">
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">Web Design</a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">App Development</a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">SEO Marketing</a>
+                                <div class="border-t border-gray-100 my-1"></div>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">Consulting</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="nav-link py-4 px-2 text-gray-600 font-semibold hover:text-blue-500 transition duration-300">About</a>
+                    <a href="#" class="nav-link py-4 px-2 text-gray-600 font-semibold hover:text-blue-500 transition duration-300">Contact</a>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-full font-medium transition duration-300 shadow-md transform hover:scale-105 ml-4">
+                        Sign Up
+                    </button>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="outline-none p-2 rounded-md hover:bg-gray-100 focus:ring-2 focus:ring-blue-400 transition-all duration-300" aria-label="Toggle Menu">
+                        <svg class="w-7 h-7 text-gray-600" id="menu-icon" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 shadow-inner overflow-y-auto">
+            <ul class="px-4 pt-2 pb-6 space-y-1">
+                <li><a href="#" class="block text-sm px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Home</a></li>
+                
+                <!-- Mobile Sub-links -->
+                <li class="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">Services</li>
+                <li><a href="#" class="block text-sm px-8 py-2 text-gray-600 hover:text-blue-600 transition">Web Design</a></li>
+                <li><a href="#" class="block text-sm px-8 py-2 text-gray-600 hover:text-blue-600 transition">App Development</a></li>
+                <li><a href="#" class="block text-sm px-8 py-2 text-gray-600 hover:text-blue-600 transition">SEO Marketing</a></li>
+                
+                <li><a href="#" class="block text-sm px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition mt-2">About</a></li>
+                <li><a href="#" class="block text-sm px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">Contact</a></li>
+                <li class="pt-4 px-4">
+                    <button class="w-full bg-blue-500 text-white px-4 py-3 rounded-lg font-semibold shadow-md active:bg-blue-700 transition duration-150">
+                        Get Started
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="pt-24 px-4 max-w-4xl mx-auto">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4 font-display">Dropdown Menu Added</h1>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Hover over the <strong>Services</strong> link in the navigation bar to see the listing links. We use Tailwind's <code>group-hover</code> utility to toggle visibility without needing extra JavaScript for the desktop dropdown logic.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 inline-flex items-center space-x-3">
+                <div class="bg-blue-500 p-2 rounded-lg">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <span class="text-blue-800 text-sm font-medium">On mobile, the services are listed clearly within the slide-out menu.</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            const isActive = menu.classList.toggle('active');
+            if (isActive) {
+                icon.innerHTML = '<path d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                icon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!btn.contains(e.target) && !menu.contains(e.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                icon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                menu.classList.remove('active');
+                icon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+    </script>
+</body>
+</html>
